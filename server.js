@@ -11,11 +11,11 @@ const app = express();
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1", //localhost
-    user: "postgres", //add your user name for the database here
-    port: 5432, // add your port number here
-    password: "test", //add your correct password in here
-    database: "smartbrain", //add your database name you created here
+    host: "127.0.0.1", 
+    user: "postgres", 
+    port: 5432, 
+    password: "test", 
+    database: "smartbrain", 
   },
 });
 
@@ -49,4 +49,4 @@ app.post("/register", (req, res) => {
   RegisterHandler.RegisterHandler(req, res, bcrypt, db);
 });
 
-app.listen(3001);
+app.listen(process.env.PORT || 3001);
