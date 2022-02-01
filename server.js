@@ -10,8 +10,10 @@ const app = express();
 
 const db = knex({
   client: 'pg',
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
+  connection: {
+    host: process.env.DATABASE_URL,
+    ssl: true
+  }
 });
 
 app.use(express.urlencoded({ extended: false }));
