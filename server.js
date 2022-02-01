@@ -9,24 +9,20 @@ const ImageController = require("./Controllers/ImageController");
 const app = express();
 
 const db = knex({
-  client: 'pg',
+  client: "pg",
   connection: {
     connectionString: process.env.DATABASE_URL,
     ssl: {
-      rejectUnauthorized: false
-    }
-  }
+      rejectUnauthorized: false,
+    },
+  },
 });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-  db.select("*")
-    .from("users")
-    .then((users) => res.send(users));
-});
+app.get("/", (req, res) => res.send([]));
 
 app.get("/profile", (req, res) => {
   ProfileController.ProfileController(req, res, db);

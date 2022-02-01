@@ -1,5 +1,5 @@
 {
-  "name": "FaceDetectionBackend",
+  "name": "face-detection-backend",
   "version": "1.0.0",
   "description": "server",
   "main": "server.js",
